@@ -45,7 +45,7 @@ export function Testimonials() {
             </svg>
 
             <blockquote className="display relative mt-8 max-w-[24ch] text-2xl leading-[1.18] text-white md:text-[2.1rem]">
-              &ldquo;Pixora completely changed the way we create websites. The platform
+              &ldquo;Duonox completely changed the way we create websites. The platform
               is incredibly smooth, easy to use, and powerful enough to handle
               everything from simple landing pages to full business websites.&rdquo;
             </blockquote>

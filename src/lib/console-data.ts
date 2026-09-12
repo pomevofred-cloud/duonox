@@ -17,7 +17,10 @@ export const metrics = {
   issuedInvoices: 7,
   draftInvoices: 1,
   revenue30: 5720,
+  invoiced30: 8600,
   paymentsReceived: 4,
+  paymentsAllTime: 8,
+  openInvoices: 3,
   visitors: 610,
   pageviews: 1504,
   enquiries: 14,
@@ -40,14 +43,14 @@ export const clients = [
 ];
 
 export const invoices = [
-  { id: "2026-008", client: "Kwame & Co.", due: "Due 24 Oct", amount: 4050, status: "Part paid" as InvoiceStatus },
-  { id: "2026-007", client: "Flurum Fitness", due: "Due 19 Oct", amount: 1600, status: "Draft" as InvoiceStatus },
-  { id: "2026-006", client: "Seon.", due: "Due 20 Sep", amount: 1250, status: "Overdue" as InvoiceStatus },
-  { id: "2026-005", client: "Capital Logistic", due: "Due 10 Aug", amount: 880, status: "Overdue" as InvoiceStatus },
-  { id: "2026-004", client: "Black Rose", due: "Due 18 Sep", amount: 3300, status: "Paid" as InvoiceStatus },
-  { id: "2026-003", client: "Régal.", due: "Due 09 Jul", amount: 2420, status: "Paid" as InvoiceStatus },
-  { id: "2026-002", client: "Residens", due: "Due 21 Jun", amount: 4600, status: "Paid" as InvoiceStatus },
-  { id: "2026-001", client: "Legend Motors", due: "Due 20 May", amount: 7300, status: "Paid" as InvoiceStatus },
+  { id: "2026-008", client: "Kwame & Co.", project: "Web & product", issued: "14 Sep", due: "24 Oct", amount: 4050, paid: 2000, status: "Part paid" as InvoiceStatus },
+  { id: "2026-007", client: "Flurum Fitness", project: "Studio rebrand", issued: "21 Sep", due: "19 Oct", amount: 1600, paid: 0, status: "Draft" as InvoiceStatus },
+  { id: "2026-006", client: "Seon.", project: "Brand refresh", issued: "13 Sep", due: "20 Sep", amount: 1250, paid: 0, status: "Overdue" as InvoiceStatus },
+  { id: "2026-005", client: "Capital Logistic", project: "Website & RS", issued: "05 Aug", due: "10 Aug", amount: 880, paid: 0, status: "Overdue" as InvoiceStatus },
+  { id: "2026-004", client: "Black Rose", project: "Identity system", issued: "11 Sep", due: "18 Sep", amount: 3300, paid: 3300, status: "Paid" as InvoiceStatus },
+  { id: "2026-003", client: "Régal.", project: "Packaging system", issued: "02 Jul", due: "09 Jul", amount: 2420, paid: 2420, status: "Paid" as InvoiceStatus },
+  { id: "2026-002", client: "Residens", project: "Editorial system", issued: "14 Jun", due: "21 Jun", amount: 4600, paid: 4600, status: "Paid" as InvoiceStatus },
+  { id: "2026-001", client: "Legend Motors", project: "Digital & product", issued: "11 May", due: "18 May", amount: 7300, paid: 7300, status: "Paid" as InvoiceStatus },
 ];
 
 export const payments = [
@@ -59,6 +62,16 @@ export const payments = [
   { client: "Régal.", ref: "2026-003", date: "10 Jul", amount: 1200, method: "Card" },
   { client: "Residens", ref: "2026-002", date: "13 Jul", amount: 4600, method: "Bank transfer" },
   { client: "Legend Motors", ref: "2026-001", date: "20 May", amount: 7300, method: "Bank transfer" },
+];
+
+export const emails = [
+  { subject: "Invoice 2026-008 from Duonox", client: "Kwame & Co.", kind: "invoice", sent: "3d ago", status: "Opened" },
+  { subject: "Reminder: invoice 2026-006 due", client: "Seon.", kind: "reminder", sent: "5d ago", status: "Delivered" },
+  { subject: "Proposal — brand identity system", client: "Atelier Nord", kind: "proposal", sent: "6d ago", status: "Opened" },
+  { subject: "Invoice 2026-006 from Duonox", client: "Seon.", kind: "invoice", sent: "12d ago", status: "Clicked" },
+  { subject: "Re: kickoff and discovery call", client: "Linguafrica", kind: "reply", sent: "14d ago", status: "Opened" },
+  { subject: "Duonox letters — no. 4", client: "Black Rose", kind: "newsletter", sent: "18d ago", status: "Sent" },
+  { subject: "Invoice 2026-005 from Duonox", client: "Capital Logistic", kind: "invoice", sent: "33d ago", status: "Bounced" },
 ];
 
 export const paymentMix = [

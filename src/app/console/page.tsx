@@ -16,7 +16,7 @@ export default function OverviewPage() {
         subtitle="Every figure is read from your invoices, payments and website. Nothing is stored twice."
         action={
           <>
-            <Link href="/console/invoices" className="btn btn-primary">
+            <Link href="/console/invoices/new" className="btn btn-primary">
               <Plus className="h-4 w-4" /> New invoice
             </Link>
             <RangeTabs />

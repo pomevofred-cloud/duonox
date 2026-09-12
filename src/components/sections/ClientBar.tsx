@@ -1,4 +1,5 @@
 import { clients } from "@/lib/site";
+import { Reveal } from "@/components/anim";
 
 /** Full-bleed blue band of client wordmarks (Home / Contact). */
 export function ClientBar() {
@@ -6,14 +7,16 @@ export function ClientBar() {
     <section className="bg-brand-500 text-white">
       <div className="container-page">
         <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-6 md:py-7">
-          {clients.map((c) => (
-            <span
+          {clients.map((c, i) => (
+            <Reveal
               key={c}
-              className="text-lg font-bold tracking-tight md:text-2xl"
-              style={{ fontFamily: "var(--font-plus-jakarta)" }}
+              as="span"
+              delay={i * 70}
+              y={14}
+              className="inline-block text-lg font-bold tracking-tight md:text-2xl"
             >
               {c}
-            </span>
+            </Reveal>
           ))}
         </div>
       </div>

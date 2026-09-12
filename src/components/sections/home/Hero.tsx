@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Stars } from "@/components/ui/Stars";
 import { AvatarStack } from "@/components/ui/AvatarStack";
 import { BookDiscoveryButton } from "@/components/booking/BookDiscoveryButton";
+import { CountUp, Reveal } from "@/components/anim";
 import { ArrowRight, Plus, Minus } from "@/components/icons";
 
 const avatars = [
@@ -58,26 +59,26 @@ export function Hero() {
 
         {/* Floating cards */}
         <div className="mt-14 flex flex-wrap gap-4 md:mt-24 md:justify-end">
-          <div className="card w-[16rem] p-5 text-ink">
+          <Reveal className="card w-[16rem] p-5 text-ink" delay={80}>
             <p className="text-[0.8rem] text-muted">Client rating</p>
             <div className="mt-1 flex items-end gap-1">
-              <span className="display text-5xl font-semibold text-ink">4.8</span>
+              <CountUp value={4.8} decimals={1} className="display text-5xl font-semibold text-ink" />
               <span className="mb-1.5 text-sm text-muted-2">/5</span>
             </div>
             <Stars value={5} size={14} className="mt-1" />
             <p className="mt-2 text-[0.8rem] leading-snug text-muted">
               Across 40+ founder-led engagements.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="card w-[17rem] p-5 text-ink">
+          <Reveal className="card w-[17rem] p-5 text-ink" delay={200}>
             <div className="space-y-2">
               <DiscPill label="Identity" />
               <DiscPill label="Editorial" active />
               <DiscPill label="Web & product" />
             </div>
             <p className="mt-3 text-[0.8rem] text-muted">Five disciplines, one room.</p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { CountUp, BarFill, SegmentBar } from "@/components/anim";
 import { ArrowRight } from "@/components/icons";
 
 export function StudioBuilt() {
@@ -24,13 +25,17 @@ export function StudioBuilt() {
                 </div>
                 <div className="text-right">
                   <p className="text-[0.72rem] text-white/70">Founders</p>
-                  <p className="display text-4xl">40+</p>
+                  <p className="display text-4xl">
+                    <CountUp value={40} suffix="+" />
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-line">
-              <div className="h-full w-[72%] rounded-full bg-brand-500" />
-            </div>
+            <BarFill
+              width="72%"
+              trackClassName="mt-4 h-1.5 rounded-full bg-line"
+              className="h-full rounded-full bg-brand-500"
+            />
             <p className="mt-4 text-[0.85rem] text-muted">
               Founder-led from pitch through handover.
             </p>
@@ -41,16 +46,17 @@ export function StudioBuilt() {
             <Head title="Post-launch support" tag="Included" tagClass="text-brand-500" />
             <p className="mt-4 text-[0.75rem] text-muted">Every build</p>
             <p className="display text-4xl">
-              90 <span className="align-baseline text-lg text-muted-2">days</span>
+              <CountUp value={90} /> <span className="align-baseline text-lg text-muted-2">days</span>
             </p>
-            <div className="mt-4 flex gap-[3px]">
-              {Array.from({ length: 26 }).map((_, i) => (
-                <span
-                  key={i}
-                  className={`h-6 flex-1 rounded-[3px] ${i < 22 ? "bg-brand-500" : "bg-line"}`}
-                />
-              ))}
-            </div>
+            <SegmentBar
+              total={26}
+              filled={22}
+              activeClass="rounded-[3px] bg-brand-500"
+              inactiveClass="rounded-[3px] bg-line"
+              className="mt-4"
+              gap={3}
+              height={24}
+            />
             <div className="mt-2 flex justify-between text-[0.72rem] text-muted-2">
               <span>0</span>
               <span>90 / 90</span>
@@ -95,7 +101,12 @@ export function StudioBuilt() {
             <div className="mt-5 grid grid-cols-4 gap-1.5">
               {["Intake", "Concept", "Build", "Handover"].map((s, i) => (
                 <div key={s}>
-                  <div className={`h-1.5 rounded-full ${i < 3 ? "bg-brand-500" : "bg-line"}`} />
+                  <BarFill
+                    width="100%"
+                    delay={i * 120}
+                    trackClassName="h-1.5 rounded-full bg-line"
+                    className={`h-full rounded-full ${i < 3 ? "bg-brand-500" : "bg-line"}`}
+                  />
                   <p className="mt-2 text-[0.7rem] text-muted-2">{s}</p>
                 </div>
               ))}

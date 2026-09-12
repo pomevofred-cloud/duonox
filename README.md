@@ -87,17 +87,29 @@ public/
 └── logo/
 ```
 
-## Deployment
+## Deployment — GitHub Pages (free, GitHub-native)
 
-Optimised for **Vercel** (zero-config for Next.js). Push the repo and import it, or:
+**GitHub is the single source of truth.** The site is deployed to **GitHub Pages** — no paid hosting, no Vercel Pro.
+
+- **Live site:** https://pomevofred-cloud.github.io/duonox/
+- **Live dashboard:** https://pomevofred-cloud.github.io/duonox/console/
+
+**How it works:**
+- `main` holds the source code.
+- `gh-pages` holds the built static export (produced with `DEPLOY_TARGET=pages`, which sets `output: export` + `basePath: /duonox`). GitHub Pages serves this branch.
+
+**To publish changes** — the workflow is `Edit → Commit → Push → Deploy`:
 
 ```bash
-npm i -g vercel
-vercel            # preview
-vercel --prod     # production
+git add -A && git commit -m "…" && git push   # push source to main
+npm run deploy                                 # build + publish to gh-pages
 ```
 
-No environment variables are required.
+`npm run deploy` runs `scripts/deploy-pages.sh`: it builds the static export and pushes it to `gh-pages`; GitHub Pages then rebuilds automatically (~1 min).
+
+**Custom domain:** in the repo's **Settings → Pages → Custom domain**, add your domain and a `CNAME` DNS record. On a root domain (served at `/`), remove `basePath` from `next.config.ts` before deploying so asset paths resolve at the root.
+
+> Runs the same locally (`npm run dev`) and would also deploy to Vercel's **free** tier if ever wanted — the app never requires Vercel Pro. No environment variables are required.
 
 ## Fonts & assets
 

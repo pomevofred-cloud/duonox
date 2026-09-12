@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /console
+
+Sitemap: https://duonoxx.com/sitemap.xml

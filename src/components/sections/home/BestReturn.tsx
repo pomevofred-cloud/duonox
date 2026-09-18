@@ -35,10 +35,10 @@ const stats = [
 ];
 
 const notifications = [
-  { name: "Jasper Hayes", avatar: "/images/avatars/a6.jpg", offset: 0 },
-  { name: "Alex Vance", avatar: "/images/avatars/a1.jpg", offset: 1 },
-  { name: "Jerin Brown", avatar: "/images/avatars/a3.jpg", offset: 2 },
-  { name: "Natasha", avatar: "/images/avatars/a2.jpg", offset: 3, sub: "Your workspace has been updated" },
+  { name: "Jasper Hayes", avatar: "/images/avatars/a6.jpg" },
+  { name: "Alex Vance", avatar: "/images/avatars/a1.jpg", sub: "You received a payment of $72" },
+  { name: "Jerin Brown", avatar: "/images/avatars/a3.jpg" },
+  { name: "Natasha", avatar: "/images/avatars/a2.jpg", sub: "Your workspace has been updated" },
 ];
 
 export function BestReturn({ withFeatures = true }: { withFeatures?: boolean }) {
@@ -114,34 +114,33 @@ export function BestReturn({ withFeatures = true }: { withFeatures?: boolean }) 
 
             {/* Stay in sync */}
             <article className="flex flex-col justify-between overflow-hidden rounded-[1.5rem] bg-cream p-7">
-              <div className="relative mx-auto flex min-h-[220px] w-full max-w-[440px] items-center py-6">
-                <div className="relative w-full">
-                  {notifications.map((n) => (
-                    <div
-                      key={n.name}
-                      className="mx-auto flex items-center gap-3 rounded-2xl bg-[#1b1560] px-4 py-3 text-white shadow-lg"
-                      style={{
-                        width: `${100 - n.offset * 6}%`,
-                        marginTop: n.offset === 0 ? 0 : -18,
-                        position: "relative",
-                        zIndex: n.offset,
-                      }}
-                    >
-                      <Image
-                        src={n.avatar}
-                        alt=""
-                        width={34}
-                        height={34}
-                        className="h-8 w-8 rounded-full object-cover"
-                      />
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[0.9rem] font-medium">{n.name}</p>
-                        {n.sub && <p className="truncate text-[0.72rem] text-white/50">{n.sub}</p>}
-                      </div>
-                      <span className="text-[0.7rem] text-white/40">Now</span>
+              <div className="relative ml-auto w-full pt-4">
+                {notifications.map((n, i) => (
+                  <div
+                    key={n.name}
+                    className="flex items-center gap-3 rounded-2xl bg-[#1b1560] px-4 py-3 text-white shadow-[0_18px_40px_rgba(20,14,80,0.28)]"
+                    style={{
+                      width: "80%",
+                      marginLeft: `${(notifications.length - 1 - i) * 6.5}%`,
+                      marginTop: i === 0 ? 0 : -20,
+                      position: "relative",
+                      zIndex: i,
+                    }}
+                  >
+                    <Image
+                      src={n.avatar}
+                      alt=""
+                      width={36}
+                      height={36}
+                      className="h-9 w-9 rounded-full object-cover"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[0.92rem] font-medium">{n.name}</p>
+                      {n.sub && <p className="truncate text-[0.72rem] text-white/45">{n.sub}</p>}
                     </div>
-                  ))}
-                </div>
+                    <span className="text-[0.72rem] text-white/40">Now</span>
+                  </div>
+                ))}
               </div>
               <div>
                 <h3 className="text-[1.4rem] font-medium text-brand-500" style={{ fontFamily: "var(--font-google-sans)" }}>

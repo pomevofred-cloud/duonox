@@ -49,21 +49,21 @@ export function Header({ variant = "brand" }: { variant?: Variant }) {
     pathname === "/" ? [{ label: "Home", href: "/" }, ...nav] : [...nav];
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 pt-4 md:pt-6">
+    <header className="absolute inset-x-0 top-0 z-50 pt-4 md:pt-[44px]">
       <div className="container-page">
         <div
-          className={`flex items-center justify-between gap-4 rounded-[999px] pl-6 pr-4 py-3 md:py-3.5 md:pl-8 md:pr-4 shadow-[0_10px_40px_rgba(11,11,20,0.14)] ${pillBg}`}
+          className={`flex items-center justify-between gap-4 rounded-[999px] pl-6 pr-3 py-2.5 md:py-[11px] md:pl-9 md:pr-3.5 shadow-[0_14px_44px_rgba(11,11,20,0.16)] ${pillBg}`}
         >
-          <Logo size={24} className="shrink-0" />
+          <Logo size={28} className="shrink-0" />
 
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative text-[0.95rem] font-medium transition-colors ${
+                  className={`relative text-[1rem] font-medium transition-colors ${
                     active ? navActive : `${navText} hover:${navActive}`
                   }`}
                 >
